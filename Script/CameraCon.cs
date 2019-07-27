@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraCon : MonoBehaviour { //アタッチはMainCamera
+public class CameraCon : MonoBehaviour { //アタッチはMainCamera、カメラ制御
 	public GameObject Player; //Armature
 	private Vector3 CameraPos;
 

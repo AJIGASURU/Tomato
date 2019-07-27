@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackButton : Button_Base {
+public class RightButton : Button_Base {
 
-	private bool ButtonOn;
+	private bool ButtonOn; //EventTrigger関係
 
 	// Use this for initialization
 	void Start () {
@@ -14,15 +14,15 @@ public class BackButton : Button_Base {
 	// Update is called once per frame
 	void Update () {
 		if (this.ButtonOn) {
-			if (PlayerConScript.RB.velocity.x > -PlayerConScript.maxspeed) {
-				PlayerConScript.RB.AddForce (Vector3.left * 100);
+			if (PlayerConScript.RB.velocity.z > -PlayerConScript.maxspeed) {
+				PlayerConScript.RB.AddForce (Vector3.back * 100);
 			}
 		}
 	}
-	public void BackDown(){
+	public void RightDown(){
 		this.ButtonOn = true;
 	}
-	public void BackUp(){
+	public void RightUp(){
 		this.ButtonOn = false;
 	}
 }

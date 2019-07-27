@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoButton : MonoBehaviour {
-	public GameObject Player; //Armature これいちいちめんどいからさっさと基底クラス作れ！
-	private PlayerCon PlayerConScript; //プレイやオブジェクトからスクリプトもらいましょう！
+public class GoButton : Button_Base {
 
 	private bool ButtonOn;
 
 	// Use this for initialization
 	void Start () {
 		this.ButtonOn = false;
-		this.PlayerConScript = Player.GetComponent<PlayerCon> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (this.ButtonOn) {
-			if (this.PlayerConScript.RB.velocity.x < this.PlayerConScript.maxspeed) {
-				this.PlayerConScript.RB.AddForce (Vector3.right * 100);
+			if (PlayerConScript.RB.velocity.x < PlayerConScript.maxspeed) {
+				PlayerConScript.RB.AddForce (Vector3.right * 100);
 			}
 		}
 	}
