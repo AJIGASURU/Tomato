@@ -16,50 +16,106 @@ public class ConverSceneDirector : MonoBehaviour { //ダイアログシーン
 	void Start () {
 		this.Hitomi_image = GameObject.Find ("CameraCanvas/hitomi_Image");
 		this.Tomato_image = GameObject.Find ("CameraCanvas/tomato_Image");
-		this.DialogText = GameObject.Find ("CameraCanvas/DialogPanel/DialogText").GetComponent<Text>();
-		this.NameText = GameObject.Find ("CameraCanvas/DialogPanel/NameText").GetComponent<Text>();
+		this.DialogText = GameObject.Find ("CameraCanvas/DialogPanel/DialogText").GetComponent<Text> ();
+		this.NameText = GameObject.Find ("CameraCanvas/DialogPanel/NameText").GetComponent<Text> ();
 		this.Hitomi_image.SetActive (false);
 		this.Tomato_image.SetActive (false);
 
-		this.GameDirectorScript = GameObject.Find("GameDirector").GetComponent<GameDirector>();
-		if(GameDirectorScript.StageNumber == 1){ //ふえたらスイッチにしような
-			this.dialognum = 0;
-			}
+		this.GameDirectorScript = GameObject.Find ("GameDirector").GetComponent<GameDirector> ();
+		this.dialognum = 0;//会話番号の初期化
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0)) { 
 			this.dialognum++;
 		}
-		switch (this.dialognum) {
-		case 0:
-			SetCharacter ("tomatochick");
-			this.DialogText.text = "ん...ここは？";
-			break;
+		switch (GameDirectorScript.StageNumber) {
 		case 1:
-			SetCharacter ("hitomi");
-			this.DialogText.text = "気が付いた？\nあなた、随分可愛い姿をしているようだけど。";
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "ん...ここは？";
+				break;
+			case 1:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "気が付いた？\nあなた、随分可愛い姿をしているようだけど。";
+				break;
+			case 2:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "か...かわいい！？";
+				break;
+			case 3:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "あのね、お願いがあるんだけど、\n花を、集めて欲しいの。";
+				break;
+			case 4:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "花？";
+				break;
+			case 5:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
 			break;
-		case 2:
-			SetCharacter ("tomatochick");
-			this.DialogText.text = "か...かわいい！？";
+		case 2: //stagenumber
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "ふふふ、面白い。\n転がって進むのね。";
+				break;
+			case 1:
+				this.DialogText.text = "・・・";
+				SetCharacter ("tomatochick");
+				break;
+			case 2:
+				this.DialogText.text = "実はあなた、一瞬なら飛べるのよ。\n右下の羽、押してみてね。";
+				SetCharacter ("hitomi");
+				break;
+			case 3:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "羽が白い時にしか使えないから気をつけてね！";
+				break;
+			case 4:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "それじゃ行ってらっしゃい。";
+				break;
+			case 5:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
 			break;
 		case 3:
-			SetCharacter ("hitomi");
-			this.DialogText.text = "あのね、お願いがあるんだけど、\n花を、集めて欲しいの。";
-			break;
-		case 4:
-			SetCharacter ("tomatochick");
-			this.DialogText.text = "花？";
-			break;
-		case 5:
-			SceneManager.LoadScene ("Scene01");
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "どうもありがとう。\n2つめの花、げっとだね。";
+				break;
+			case 1:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "ところで君は誰？";
+				break;
+			case 2:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "私の名前はヒトミ。\nわけあって花を集めてるの。";
+				break;
+			case 3:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "君の名前は？";
+				break;
+			case 4:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "名前・・・僕の名前は・・・";
+				break;
+			case 5:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
 			break;
 		default:
-			this.DialogText.text = "会話入力がありません";
 			break;
 		}
+
 	}
 
 	private void SetCharacter(string charaname){

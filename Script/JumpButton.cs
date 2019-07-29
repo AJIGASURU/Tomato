@@ -22,10 +22,9 @@ public class JumpButton : Button_Base { //ジャンプボタン<ボタンベー�
 			this.Rot = new Vector3((2f-PlayerConScript.jumpinterval)*100f,(2f-PlayerConScript.jumpinterval)*100f,0f);
 			this.gameObject.GetComponent<RectTransform> ().sizeDelta = this.Size; //回転
 			transform.rotation = Quaternion.Euler (this.Rot);
-
 		} else {
 			this.gameObject.GetComponent<Button> ().interactable = true; //able化
-			this.Size = new Vector2 (300f, 300f);//一応初期k
+			this.Size = new Vector2 (300f, 300f);//一応初期化
 			this.Rot = Vector3.zero;
 		}
 	}
