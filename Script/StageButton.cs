@@ -37,4 +37,20 @@ public class StageButton : MonoBehaviour { //メニューシーン用です。
 		this.GameDirectorScript.StageNumber = 3;
 		SceneManager.LoadScene ("ConversationScene");
 	}
+	public void Onclick_1_4(){
+		this.GameDirectorScript.StageNumber = 4;
+		SceneManager.LoadScene ("ConversationScene");
+	}
+	public void Onclick_1_5(){
+		this.GameDirectorScript.StageNumber = 5;
+		SceneManager.LoadScene ("ConversationScene");
+	}
+	public void Onclick_1_6(){
+		this.GameDirectorScript.StageNumber = 6;
+		SceneManager.LoadScene ("ConversationScene");
+	}
+	public void Onclick_1_7(){
+		this.GameDirectorScript.StageNumber = 7;
+		SceneManager.LoadScene ("ConversationScene");
+	}
 }

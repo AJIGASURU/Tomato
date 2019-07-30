@@ -12,14 +12,18 @@ public class GameDirector : MonoBehaviour { //兼音楽家
 	void Start () {
 		DontDestroyOnLoad (gameObject); //これで破壊されない。
 		StageNumber = -1; //0->メニューシーン、-1->タイトル
-		ClearNumber = 0; /*デバッグ用に変えていますが、本当は0*/
+		ClearNumber = PlayerPrefs.GetInt("ClearNumber",0); //ロード
 
 		sources = gameObject.GetComponents<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (StageNumber == -1) {
+		//データ自動保存はプレイヤスクリプトで行なっている。デバッグ時の初期化
+        // PlayerPrefs.SetInt("ClearNumber" , 0);  
+
+
+		if (StageNumber == -1) { //タイトル
 			if (Input.GetMouseButtonDown (0)) {
 				StageNumber++;
 				SceneManager.LoadScene ("MenuScene");

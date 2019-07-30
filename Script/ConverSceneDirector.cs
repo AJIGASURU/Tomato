@@ -112,6 +112,126 @@ public class ConverSceneDirector : MonoBehaviour { //ダイアログシーン
 				break;
 			}
 			break;
+		case 4:
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "あなたは道端に倒れていたの";
+				break;
+			case 1:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "どうもありがとう。\n助かったよ";
+				break;
+			case 2:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "そのまえの記憶はないの？";
+				break;
+			case 3:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "断片的にしか覚えてない。";
+				break;
+			case 4:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "でもとにかくわかるのは\n今いる感じの場所とは、かけ離れた世界にいたこと。";
+				break;
+			case 5:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
+			break;
+		case 5:
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "どうして花を集めているの？";
+				break;
+			case 1:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "理由を聞くの？\n理由がなければダメ？";
+				break;
+			case 2:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "ところでそれ、なんの花か知ってる？";
+				break;
+			case 3:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "いや、わからない。\nあまりみたことのない花だから。";
+				break;
+			case 4:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "じゃあみたことのある花の名は知ってるの？";
+				break;
+			case 5:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "いや、わからない。";
+				break;
+			case 6:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
+			break;
+		case 6:
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "一つ教えてあげる";
+				break;
+			case 1:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "なんか偉そうだな・・・";
+				break;
+			case 2:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "その花は「トマトの花」らしいわ。";
+				break;
+			case 3:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "トマト？なにそれ？";
+				break;
+			case 4:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "聞いた話だと、ちゃんと育てれば実がなるらしいのだけど、\n私もそれはみたことはないの。";
+				break;
+			case 5:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "へ〜";
+				break;
+			case 6:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
+			break;
+		case 7:
+			switch (this.dialognum) {
+			case 0:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "あなたのことを教えて";
+				break;
+			case 1:
+				SetCharacter ("tomatochick");
+				this.DialogText.text = "僕は記憶があまりないんだ。でも日本語は覚えてる。";
+				break;
+			case 2:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "会話ができているということね。";
+				break;
+			case 3:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "果たして私たちは本当に会話してるのかしら。";
+				break;
+			case 4:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "私たちは私たちしかいないのよ。";
+				break;
+			case 5:
+				SetCharacter ("hitomi");
+				this.DialogText.text = "第三者から見たら・・・";
+				break;
+			case 6:
+				SceneManager.LoadScene ("Scene01");
+				break;
+			}
+			break;
 		default:
 			break;
 		}
