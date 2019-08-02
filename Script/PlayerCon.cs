@@ -202,8 +202,8 @@ public class PlayerCon : MonoBehaviour { //アタッチはArmature、アニメ�
 				this.ControllInDir /= Vector2.Distance (this.MousePos, this.CenterPos);//正規化
 				this.ControllInDir *= 150f; //150かける（サイズの問題）
 				this.ControllIn.GetComponent<RectTransform> ().anchoredPosition = this.CenterPos + this.ControllInDir;//表示位置
-				this.Direction.z = -this.ControllInDir.x; //3D変換
-				this.Direction.x = this.ControllInDir.y;
+				this.Direction.z = -this.ControllInDir.x/2; //3D変換
+				this.Direction.x = this.ControllInDir.y/2;
 				add_force ();
 			} else { //右にいきすぎると何も起きない。
 			}
@@ -233,8 +233,8 @@ public class PlayerCon : MonoBehaviour { //アタッチはArmature、アニメ�
 				this.ControllInDir /= Vector2.Distance (Input.GetTouch(0).position, this.CenterPos);//正規化
 				this.ControllInDir *= 150f; //150かける（サイズの問題）
 				this.ControllIn.GetComponent<RectTransform> ().anchoredPosition = this.CenterPos + this.ControllInDir;//表示位置、これは表示のみ。
-				this.Direction.z = -this.ControllInDir.x; //3D変換,Directionは3dなので注意
-				this.Direction.x = this.ControllInDir.y;
+				this.Direction.z = -this.ControllInDir.x/2; //3D変換,Directionは3dなので注意
+				this.Direction.x = this.ControllInDir.y/2; //限界75?
 				add_force ();
 			} else {//ジャンプした時->ControllInの位置は何も書かなければ変わらない。addforceはされない？？？
 			}
@@ -247,7 +247,7 @@ public class PlayerCon : MonoBehaviour { //アタッチはArmature、アニメ�
 		if (xzmagnitude < maxspeed) { //yを考慮しない。
 			this.RB.AddForce (Direction);
 		} else {
-			if (Vector3.Dot (this.Direction, this.RB.velocity) < 600f) { //緩め、3次元内積の計算。適当だけど前より動く。そもそもはやくてもいみない？
+			if (Vector3.Dot (this.Direction, this.RB.velocity) < 500f) { //緩め、3次元内積の計算。適当だけど前より動く。そもそもはやくてもいみない？
 				this.RB.AddForce (Direction);
 			}
 		}

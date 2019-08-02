@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneDirector : MonoBehaviour { //とりあえずのシーンディレクター
+public class SceneDirector : MonoBehaviour { //とりあえずのシーンディレクター、これいる？？？
 	public GameObject Player; //Armature
 
 	// Use this for initialization
